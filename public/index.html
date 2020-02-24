@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <!--
-* This is the stack manager website used for local testing. This website normally renders parts
-server-side, so you won't get a full experience here.
+* This is the stack manager website index.
 -->
 <html lang="en">
   <head>
@@ -17,6 +16,16 @@ server-side, so you won't get a full experience here.
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
+    <!-- These are vars provided server-side and get injected by lambda. -->
+    <div id="stackManEnvInfo" data-envinfo='{
+      "authUser": "{{ username }}",
+      "awsRegion": "{{ awsregion }}",
+      "currentView": "{{ currentview }}",
+      "cognitoClientId": "{{ COGNITO_CLIENT_ID }}",
+      "cognitoUserPoolId": "{{ COGNITO_USER_POOL_ID }}",
+      "cognitoAdminUserUUID": "{{ COGNITO_USER_UUID }}"
+    }'>
+    </div>
     <div id="root">
         <div class="epithystackman-preload-anim" style="text-align: center;display: block;">
             <img width="300" height="200" src="%PUBLIC_URL%/epithy_anim.svg" />
