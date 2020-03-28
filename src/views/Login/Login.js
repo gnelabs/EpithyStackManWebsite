@@ -19,8 +19,8 @@ class Login extends Component {
         UserPoolId: "us-east-2_i3BLbMndc",
         ClientId: "ut4ec3hp91vq3nhn9nqlivuoi",
         Storage: new CookieStorage({
-            domain: document.location.hostname,
-            secure: false
+          domain: document.location.hostname,
+          secure: false
         })
       },
       submitDisabled: true,
@@ -40,7 +40,11 @@ class Login extends Component {
     
     var cognitoUser = new CognitoUser({
       Username: this.state.userName,
-      Pool: this.userPool
+      Pool: this.userPool,
+      Storage: new CookieStorage({
+        domain: document.location.hostname,
+        secure: false
+      })
     });
     
     cognitoUser.authenticateUser(authenticationDetails, {
